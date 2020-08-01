@@ -1,0 +1,248 @@
+/* specification */
+@font-face {
+	font-family: 'Songti TC'; 
+	src: local('Songti TC'),
+		url(/fonts/chinese.stsong.ttf); 
+} 
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Songti TC;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: normal;
+}
+
+ul, li {
+    margin: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration:none;
+    color:  #FFFFFF;
+}
+
+p {
+    font-size: 26px;
+}
+
+/* nav */
+
+#menu__toggle {
+    opacity: 0;
+    position: absolute;
+    right: 2%;
+    top: 4%;
+}
+
+.menu__btn {
+    position: fixed;
+    top: 35px;
+    right: 20px;
+    width: 48px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu__btn > .burger-line,
+.menu__btn > .burger-line::before,
+.menu__btn > .burger-line::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+}
+
+.menu__btn > .burger-line::before {
+    content: '';
+    top: -8px;
+}
+
+.menu__btn > .burger-line::after {
+    content: '';
+    top: 8px;
+    width: 38px;
+    left: 5px;
+}
+
+.menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    width: 100%;
+    right: 0;
+    padding: 80px 0;
+    list-style: none;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .8);
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.menu__item:hover {
+    background-color: #CFD8DC;
+    box-shadow: 0px 0px 37px 0px rgb(102, 102, 102);
+    color: #111111;
+    transition: 0.5s ease;
+}
+
+#menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    left: 0;
+}
+
+#menu__toggle:checked ~ .menu__btn > .burger-line {
+    transform: rotate(45deg);
+    transition: ease all .7s;
+}
+
+#menu__toggle:checked ~ .menu__btn > .burger-line::before {
+    display: none;
+}
+
+#menu__toggle:checked ~ .menu__btn > .burger-line::after {
+    top: 1px;
+    transform: rotate(90deg);
+    width: 48px;
+    left: 0px;
+    transition: ease all 1s;
+}
+
+/* main */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.container {
+    padding: 0px 2%; 
+    background-color: #111111;
+    height: 100vh;
+    overflow-y: hidden;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2%;
+    text-transform: uppercase;
+}
+
+.collection-slider-wrap {
+    padding-top: 70%;
+    padding-bottom: 12%;
+    display: flex;
+    align-items: center;
+}
+
+.collection-slider-wrap-r {
+    padding-top: 89%;
+    padding-bottom: 12%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.collection-slider-arrow-r  {
+    margin-left: 5%;
+    transform: rotate(180deg);
+}
+
+.collection-slider-arrow {
+    margin-right: 5%;
+}
+
+.middle-column {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 100px;
+    max-width: 670px;
+    text-align: center;
+}
+
+.middle-column-img {
+    max-width: 445px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.middle-img-desc {
+    max-width: 277px;
+    position: absolute;
+    top: 156px;
+    right: 27%;
+}
+
+.right-column {
+    text-transform: uppercase;
+    padding-top: 2%;
+}
+
+.scale-hover{
+    transition: 1s;
+}
+.scale-hover:hover {
+    transform: scale(1.1);
+}
+
+/* media queries */
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    } 
+    
+    .img-fluid {
+        width: 40%;
+        margin: 0 auto;
+        display: block;
+        padding: 25px 0px;
+    }
+    .collection-slider-wrap-r, .collection-slider-wrap{
+        display: none;
+    }
+
+    h1 {
+        margin: 0 auto;
+        font-size: 40px;
+    }
+
+    .menu__item {
+        padding: 12px 25px;
+        text-transform: uppercase;
+        font-size: 13px;
+    }
+
+    .middle-img-desc {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 668px) {
+    .menu__item {
+        padding: 12px 15px;
+    }
+}
